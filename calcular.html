@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="angular-1.7.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="ejcc" ng-controller="Opera">
+        n1:<input type="number" placeholder="Numero" ng-model="n1"><br><br>
+        n2:<input type="number" placeholder="Numero" ng-model="n2"><br><br>
+
+        <select ng-model="Op">
+            <option>suma</option>
+            <option>resta</option>
+            <option>Multiplicacion</option>
+            <option>division</option>
+        </select>
+
+    <script>
+    angular.module('ejcc', [])
+    .controller('Opera', function($scope){
+        $scope.result = function() {
+
+    if ($scope.Op == 'suma') {
+        return $scope.n1 + $scope.n2;
+    }
+    if ($scope.Op == 'resta') {
+        return $scope.n1 - $scope.n2;
+    }
+    if ($scope.Op == 'Multiplicacion') {
+        return $scope.n1 * $scope.n2;
+    }
+    if ($scope.Op == 'division') {
+        return $scope.n1 / $scope.n2
+    }
+    };
+    });   
+    </script>
+
+<p>{{result()}}</p>
+</div>    
+</body>
+</html>

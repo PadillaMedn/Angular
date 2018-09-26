@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="angular-1.7.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="" ng-init="mensaje= 'Escriba algo:'">
+        <div>
+            <input type="text" ng-model="texto" placeholder="nombre">
+            <input type="text" ng-model="text" placeholder="Apellido">
+        </div>
+        <h3>Su nombre es: </h3>
+        <div>
+            {{texto +" "+ text }}
+        </div>
+
+        <div ng-app="" ng-init "mensaje='Escriba algo:'">
+            <h2>Hola
+                <span ng-bind="mensaje"></span>
+            </h2>
+
+            texto :
+            <input type="text" ng-model="texto">
+            <h1 ng-bind="texto"></h1>
+            <p ng-bind="texto"></p>
+
+            <h3> Expresiones: </h3>
+            <div>
+                {{texto+"..escrito por un imput"}}
+            </div>
+        </div>
+
+
+
+        <h3>Datos Numericos.</h3>
+        Numero 1:
+        <input type="number" ng-model="n1" placeholder="Digite numero">
+        <br>
+        <br> Numero 2:
+        <input type="number" ng-model="n2" placeholder="Digite numero">
+
+        <h1>
+            la suma es: {{n1+n2}}
+        </h1>
+
+        <hr>
+
+        <div ng-app="app" ng-controller="Oprc">
+            <h1>Aplicacion</h1>
+            n1 :<input type="number" ng-model="n1">
+            <br>
+            <br> 
+            n2 :<input type="number" ng-model="n2">
+            <br>
+            <br>
+
+            <select ng-model="op">
+                <option>Suma</option>
+                <option>Resta</option>
+                <option>Multiplicacion</option>
+                <option>Division</option>
+            </select>
+            <script>
+                angular.module('app', [])
+
+                    .controller('Oprc', function($scope) {
+                        $scope.result = function () {
+
+                         if ($scope.op == 'suma') {
+                                return $scope.n1 + $scope.n2;
+
+                        }
+                         if ($scope.op == 'Resta') {
+                                return $scope.n1 - $scope.n2;
+
+                        }
+                        if ($scope.op == 'Multiplicacion') {
+                                return $scope.n1 * $scope.n2;
+
+ }
+if ($scope.op == 'Division') {
+         return $scope.n1 / $scope.n2;
+
+}
+ };
+ });
+</script>
+ {{result()}}
+
+</div>
+</body>
+
+</html>
